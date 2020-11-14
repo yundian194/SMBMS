@@ -67,7 +67,6 @@ public class UserServlet extends HttpServlet {
     //重点 难点
     public void query(HttpServletRequest req, HttpServletResponse resp){
         //查询用户列表
-
         //从前端获取数据
         String queryUserName = req.getParameter("queryname");
         String temp = req.getParameter("queryUserRole");
@@ -96,7 +95,6 @@ public class UserServlet extends HttpServlet {
         pageSupport.setCurrentPageNo(currentPageNo);
         pageSupport.setPageSize(pageSize);
         pageSupport.setTotalPageCount(totalCount);
-
         int totalPageCount = pageSupport.getTotalCount();
         //控制首页和尾页
         if (totalCount< 1){
@@ -112,7 +110,6 @@ public class UserServlet extends HttpServlet {
         req.setAttribute("roleList",roleList);
         req.setAttribute("totalCount",totalCount);
         req.setAttribute("currentPageNo",currentPageNo);
-
         //返回前端
         try {
             req.getRequestDispatcher("/jsp/userlist.jsp").forward(req,resp);

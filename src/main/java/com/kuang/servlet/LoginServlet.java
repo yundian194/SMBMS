@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
         }
 
     }
-    public void loginPro(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void loginPro(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         //获取前端的用户名和密码
         String userCode = req.getParameter("userCode");
         String userPassword = req.getParameter("userPassword");
@@ -43,7 +43,8 @@ public class LoginServlet extends HttpServlet {
         UserServiceImpl userService = new UserServiceImpl();
         User user = userService.login(userCode, userPassword);
         req.getSession().setAttribute(Constants.USER_SESSION,user);
-        resp.sendRedirect("/jsp/frame.jsp");
+        req.setAttribute("userName",user.getUserName());
+        req.getRequestDispatcher("/jsp/frame.jsp").forward(req,resp);
     }
     public void loginVerify(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
         String userCode = req.getParameter("userCode");

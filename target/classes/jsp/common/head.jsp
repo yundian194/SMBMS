@@ -15,9 +15,9 @@
     <header class="publicHeader">
         <h1>超市订单管理系统</h1>
         <div class="publicHeaderR">
-            <p><span>下午好！</span><span style="color: #fff21b"> ${sessionScope.USER_CODE.userName }</span> , 欢迎你！</p>
+            <p><span>下午好！</span><span style="color: #fff21b"> ${requestScope.userName}</span> , 欢迎你！</p>
             <a href="/logoutServlet">退出</a>
-        </div>
+        </div>method
     </header>
 <!--时间-->
     <section class="publicTime">
