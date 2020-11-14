@@ -18,7 +18,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<Role> getRoleList(Connection connection){
+    public List<Role> getRoleList(){
+        Connection connection = BaseDao.getConnection();
         List<Role> roleList = new ArrayList<>();
         if (connection != null){
             try {
